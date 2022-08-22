@@ -30,7 +30,6 @@ class DevicesListAdapter(
         holder.bind(item)
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun updateList(scanResult: List<ScanResult>) {
         val diffCallback = ScanResultsCallBack(items, scanResult)
         val diffScanResult = DiffUtil.calculateDiff(diffCallback)
@@ -43,10 +42,9 @@ class DevicesListAdapter(
         view: View
     ) : RecyclerView.ViewHolder(view) {
 
-        @SuppressLint("MissingPermission")
         fun bind(result: ScanResult) {
             itemView.apply {
-                tv_device_name.text = result.device.name ?: "N/A"
+                tv_device_name.text = result.scanRecord?.deviceName ?: "N/A"
                 tv_device_address.text = result.device.address
                 tv_signal_strength.text = "${result.rssi} dBm"
                 setOnClickListener { onItemClickListener.invoke(result) }

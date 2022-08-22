@@ -26,7 +26,7 @@ class DeviceDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.state.observe(viewLifecycleOwner) { scanResult ->
-            tv_device_name.text = scanResult.device.name ?: "N/A"
+            tv_device_name.text = scanResult.scanRecord?.deviceName ?: "N/A"
             tv_device_address.text = scanResult.device.address
         }
     }
