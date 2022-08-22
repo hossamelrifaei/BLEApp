@@ -5,15 +5,15 @@ import com.example.bleapp.services.ScannerService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityRetainedComponent
+import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.android.scopes.ActivityRetainedScoped
+import dagger.hilt.android.scopes.ViewModelScoped
 
-@InstallIn(ActivityRetainedComponent::class)
+@InstallIn(ViewModelComponent::class)
 @Module
 object ServiceModule {
 
-    @ActivityRetainedScoped
+    @ViewModelScoped
     @Provides
     fun providesScannerService(@ApplicationContext context: Context): ScannerService {
         return ScannerService(context)
