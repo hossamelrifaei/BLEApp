@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BLE App</string>
+    <string name="btn_scan_string">Scan</string>
+    <string name="tv_device_name_title_string">Device Name : </string>
+    <string name="tv_device_name_address_string">Device Address : </string>
+    <string name="btn_connect_string">Connect</string>
+</resources>
