@@ -1,4 +1,5 @@
 # BLEApp
 1- Scan devices list and ope Device detail 
-https://user-images.githubusercontent.com/13786435/186002643-6d3ba482-f5ea-499b-bc82-ed219f085478.mp4
 
+
+![bleapp](https://user-images.githubusercontent.com/13786435/186003700-4100b0b7-9a14-4376-8858-e8eaf1b0f40b.gif)
