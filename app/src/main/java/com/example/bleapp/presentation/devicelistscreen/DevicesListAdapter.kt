@@ -1,6 +1,5 @@
 package com.example.bleapp.presentation.devicelistscreen
 
-import android.annotation.SuppressLint
 import android.bluetooth.le.ScanResult
 import android.view.LayoutInflater
 import android.view.View

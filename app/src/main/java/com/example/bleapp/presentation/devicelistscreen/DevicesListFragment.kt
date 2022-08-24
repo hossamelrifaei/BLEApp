@@ -41,7 +41,7 @@ class DevicesListFragment : Fragment() {
                     progress_circular.hide()
                     devicesAdapter.updateList(it)
                 }
-                if (devicesListState.isLoading) {
+                if (devicesListState.isLoading && devicesListState.scanResults?.isEmpty() == true) {
                     progress_circular.show()
                 }
                 if (devicesListState.error.isNotBlank()) {

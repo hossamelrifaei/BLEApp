@@ -4,4 +4,6 @@
     <string name="tv_device_name_title_string">Device Name : </string>
     <string name="tv_device_name_address_string">Device Address : </string>
     <string name="btn_connect_string">Connect</string>
+    <string name="btn_connecting_string">Connecting…</string>
+    <string name="btn_disconnect_string">Disconnect</string>
 </resources>

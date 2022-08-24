@@ -9,6 +9,7 @@ import android.bluetooth.le.ScanSettings
 import android.content.Context
 import android.os.ParcelUuid
 import com.example.bleapp.common.Resource
+import com.example.bleapp.model.BluetoothConstants.SERVICE_OF_INTEREST_UUID
 import dagger.hilt.android.qualifiers.ActivityContext
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
@@ -28,8 +29,9 @@ class ScannerService(@ActivityContext context: Context) {
         bluetoothAdapter.bluetoothLeScanner
     }
 
+    //use to get only one device
     private val filter = ScanFilter.Builder().setServiceUuid(
-        ParcelUuid.fromString("4576d562-7e68-11ec-90d6-0242ac120003")
+        ParcelUuid.fromString(SERVICE_OF_INTEREST_UUID)
     ).build()
 
     private val scanSettings: ScanSettings by lazy {
@@ -51,7 +53,7 @@ class ScannerService(@ActivityContext context: Context) {
             override fun onScanResult(callbackType: Int, result: ScanResult) {
                 val indexQuery =
                     scanResults.indexOfFirst { it.device.address == result.device.address }
-                if (indexQuery != -1) { // A scan result already exists with the same address
+                if (indexQuery != -1) {
                     scanResults[indexQuery] = result
                 } else {
                     scanResults.add(result)
@@ -67,7 +69,6 @@ class ScannerService(@ActivityContext context: Context) {
         }
 
         scanResults.clear()
-
         bleScanner.startScan(listOf(), scanSettings, scanCallback)
         awaitClose { }
     }
