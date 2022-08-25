@@ -91,10 +91,10 @@ class DeviceDetailFragment : Fragment() {
                 )
             }
 
-            deviceDetailState.bluetoothGattCharacteristics?.let {
+            deviceDetailState.bluetoothGattCharacteristic?.let {
                 btn_connect.text = getString(R.string.btn_disconnect_string)
                 btn_connect.isEnabled = true
-                characteristicAdapter.updateList(it)
+               characteristicAdapter.onNewItem(it)
                 isConnected = true
             }
         }

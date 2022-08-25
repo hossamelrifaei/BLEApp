@@ -10,7 +10,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bleapp.common.Resource
-import com.example.bleapp.extensions.addOrReplace
 import com.example.bleapp.model.CharacteristicFactory
 import com.example.bleapp.services.ConnectionService
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -45,17 +44,16 @@ class DevicesDetailViewModel @Inject constructor(
                 when (resource) {
                     is Resource.Success -> {
 
-                        val char = resource.data?.let { newChar ->
+                        resource.data?.let { newChar ->
                             if (characteristicFactory.isBitmap(newChar)) {
                                 characteristicFactory.createCharacteristic<Bitmap>(newChar)
                             } else {
                                 characteristicFactory.createCharacteristic<String>(newChar)
                             }
 
+                            _servicesState.value =
+                                DeviceDetailState(bluetoothGattCharacteristic = newChar)
 
-                            _servicesState.value = DeviceDetailState(
-                                bluetoothGattCharacteristics = newChar.addOrReplace(charsList)
-                            )
                         }
 
 

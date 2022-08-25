@@ -26,13 +26,3 @@ fun BluetoothGatt.listenToCharacteristicNotification(characteristic: BluetoothGa
         this.writeDescriptor(descriptor)
     }
 }
-
-fun BluetoothGattCharacteristic.addOrReplace(charsList: MutableList<BluetoothGattCharacteristic>): MutableList<BluetoothGattCharacteristic> {
-    val index = charsList.indexOfFirst { this.uuid == it.uuid }
-    if (index == -1) {
-        charsList.add(this)
-    } else {
-        charsList[index] = this
-    }
-    return charsList
-}

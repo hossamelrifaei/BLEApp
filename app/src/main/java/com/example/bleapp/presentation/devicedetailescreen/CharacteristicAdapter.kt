@@ -53,13 +53,17 @@ class CharacteristicAdapter(
         } else {
             (holder as TexViewtHolder).bind(characteristicFactory.createCharacteristic(item))
         }
-
     }
 
-    fun updateList(characteristics: List<BluetoothGattCharacteristic>) {
-        items.clear()
-        items.addAll(characteristics)
-        notifyDataSetChanged()
+    fun onNewItem(characteristic: BluetoothGattCharacteristic) {
+        if (items.contains(characteristic).not()) {
+            items.add(characteristic)
+            notifyItemInserted(items.lastIndex)
+        } else {
+            val index = items.indexOfFirst { it.uuid == characteristic.uuid }
+            items[index] = characteristic
+            notifyItemChanged(index, characteristic)
+        }
     }
 
     inner class TexViewtHolder(
@@ -87,8 +91,6 @@ class CharacteristicAdapter(
                 img_char_value_img.setImageBitmap(characteristic.getParsedValue())
 
             }
-
         }
     }
-
 }
