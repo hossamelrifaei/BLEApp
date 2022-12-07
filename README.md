@@ -1,6 +1,6 @@
-# Tech Test for Android
+# BLE for Android
 
-This test is about scanning and connecting to a bluetooth device and interacting with its services and characteristics.
+scanning and connecting to a bluetooth device and interacting with its services and characteristics.
 
 ## Goals
 
