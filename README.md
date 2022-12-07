@@ -37,19 +37,10 @@ This test is about scanning and connecting to a bluetooth device and interacting
 
 ## How to start 
 
-1. Download the companion App from the link sent to you
+1. Download the [companion App](https://github.com/hossamelrifaei/BLEApp/tree/main/TechTestCompanion%20(macOS)%202022-03-01%2016-05-17/TechTestCompanion.app)
 2. Run the App and grant the Bluetooth permissions to start advertising the Services described in the **BLE Services Specification** below
 3. If you want to confirm the service is advertising you can download [NRF Connect](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403) on your phone to verify if you can see the service advertising from your device.
 4. From here you are ready to start
-
-## As a general rule, please
-
-- Avoid using Third Party BLE Libraries
-- Use MVVM as much as possible
-
-## Nice to have
-
-- Unit tests
 
 ___
 # BLE Services Specification
